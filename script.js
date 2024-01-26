@@ -5,6 +5,7 @@ let timerInterval;
 let timerValue = 0;
 let isPaused = false;
 let isFirstClick = false;
+let cellSize = 30; // units px
 
 // Introduce button functionality
 document.getElementById("start-button").addEventListener('click', startGame) // on click of start button, call startGame()
@@ -12,17 +13,6 @@ document.getElementById("pause-button").addEventListener('click', togglePause)
 document.getElementById("restart-button").addEventListener('click', restartGame)
 document.getElementById("settings-button").addEventListener('click', submitSettings)
 
-
-function submitMineSettings(){
-    const inputFieldMines = document.getElementById('integerInput');
-    const inputMineValue = parseInt(inputFieldMines.value);
-
-    if(isNaN(inputMineValue) || inputMineValue < inputMineValue.min || inputMineValue > upperMineLimit) {
-        alert(`Mine count must be a number between 0 and ${upperMineLimit}`);
-    } else {
-        numMines = inputMineValue;
-    }
-}
 
 function submitSettings(){
     const inputFieldSize = document.getElementById('gridDimensions');
@@ -36,12 +26,26 @@ function submitSettings(){
         gridSize = inputSizeValue;
         let upperMineLimit = gridSize ** 2 - 1
 
-        if(isNaN(inputMineValue) || inputMineValue < inputMineValue.min || inputMineValue > upperMineLimit) {
+        if(isNaN(inputMineValue) || inputMineValue < inputFieldMines.min || inputMineValue > upperMineLimit) {
             alert(`Mine count must be a number between ${inputMineValue.min} and ${upperMineLimit}.\nNo changes applied`);
         } else {
             numMines = inputMineValue;
+            updateBoard();
         }
     }
+}
+
+function updateBoard(){
+    // Scale the board width/height to fit the current grid size.
+    const minesweeperGrid = document.getElementById("minesweeper-board");
+    const borderOffset = 4; // few extra pixels for rescaling due to board border
+
+    minesweeperGrid.style.width = gridSize * cellSize + borderOffset + 'px';
+    minesweeperGrid.style.height = gridSize * cellSize + borderOffset + 'px';
+    minesweeperGrid.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
+    minesweeperGrid.style.gridTemplateRows = `repeat(${gridSize}, ${cellSize}px)`;
+
+    restartGame()
 }
 
 // Start game; generate and render grid
