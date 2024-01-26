@@ -20,8 +20,8 @@ body{
 }
 
 #minesweeper-board{
-    width: 454px;
-    height: 454px;
+    width: 453px;
+    height: 453px;
     border: 2px solid var(--tertiary-color);
     display: grid;
     grid-template-columns: repeat(15,30px);
@@ -34,6 +34,7 @@ body{
 .cell{
     width: 30px;
     height: 30px;
+    border: 1px solid var(--tertiary-color);
     display: flex;
     justify-content: center;
     align-items: center;
