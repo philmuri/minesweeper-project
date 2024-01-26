@@ -29,6 +29,7 @@ body{
     gap: 0px 0px;
     align-items: center;
     justify-items: center;
+    transition: all 1s ease; /* smooth transition for dynamic board size change */
 }
 
 .cell{
@@ -73,7 +74,7 @@ body{
 
 #timer{
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 25px;
     color: var(--tertiary-color);
@@ -86,7 +87,7 @@ body{
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 350px;
+    height: 370px;
     border: none;
     margin-left: 10px;
     justify-content: start;
@@ -95,23 +96,24 @@ body{
 }
 
 #settings-container{
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
-}
-
-label{
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center; 
     align-items: center;
 }
 
-input{
-    width: 80px;
-    font-size: 16px;
+#settings-container label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: -5px;
+    font-weight: bold;
 }
 
+#settings-container input{
+    width: 70px;
+    margin-bottom: -10px;
+}
 
 button{
     margin: 5px;

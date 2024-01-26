@@ -5,32 +5,47 @@ let timerInterval;
 let timerValue = 0;
 let isPaused = false;
 let isFirstClick = false;
-let isRunning = false;
-let upperMineLimit = document.getElementById('integerInput').max
-upperMineLimit = gridSize ** 2
 
 // Introduce button functionality
 document.getElementById("start-button").addEventListener('click', startGame) // on click of start button, call startGame()
 document.getElementById("pause-button").addEventListener('click', togglePause)
 document.getElementById("restart-button").addEventListener('click', restartGame)
-document.getElementById("mines-button").addEventListener('click', submitMineCount)
+document.getElementById("settings-button").addEventListener('click', submitSettings)
 
 
-function submitMineCount(){
-    const inputElement = document.getElementById('integerInput');
-    const enteredValue = parseInt(inputElement.value);
+function submitMineSettings(){
+    const inputFieldMines = document.getElementById('integerInput');
+    const inputMineValue = parseInt(inputFieldMines.value);
 
-    if(isNaN(enteredValue) || enteredValue < 0 || enteredValue > upperMineLimit) {
+    if(isNaN(inputMineValue) || inputMineValue < inputMineValue.min || inputMineValue > upperMineLimit) {
         alert(`Mine count must be a number between 0 and ${upperMineLimit}`);
     } else {
-        numMines = enteredValue;
+        numMines = inputMineValue;
+    }
+}
+
+function submitSettings(){
+    const inputFieldSize = document.getElementById('gridDimensions');
+    const inputFieldMines = document.getElementById('integerInput');
+    const inputSizeValue = parseInt(inputFieldSize.value);
+    const inputMineValue = parseInt(inputFieldMines.value);
+
+    if(isNaN(inputSizeValue) || inputSizeValue < inputFieldSize.min || inputSizeValue > inputFieldSize.max) {
+        alert(`Size must be a number between ${inputFieldSize.min} and ${inputFieldSize.max}.\nNo changes applied`);
+    } else {
+        gridSize = inputSizeValue;
+        let upperMineLimit = gridSize ** 2 - 1
+
+        if(isNaN(inputMineValue) || inputMineValue < inputMineValue.min || inputMineValue > upperMineLimit) {
+            alert(`Mine count must be a number between ${inputMineValue.min} and ${upperMineLimit}.\nNo changes applied`);
+        } else {
+            numMines = inputMineValue;
+        }
     }
 }
 
 // Start game; generate and render grid
 function startGame(){
-    isRunning = true;
-
     if(!grid){ // check if grid assigned yet
         grid = generateGrid(gridSize, numMines);
         renderGrid(grid);
@@ -69,12 +84,10 @@ function togglePause(){
     const pauseButton = document.getElementById("pause-button");
 
     if(isPaused){
-        isRunning = false
         clearInterval(timerInterval);
         pauseButton.textContent = "Continue";
     }
     else{
-        isRunning = true
         startTimer();
         pauseButton.textContent = "Pause";
     }
