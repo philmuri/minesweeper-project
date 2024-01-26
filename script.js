@@ -1,5 +1,5 @@
 let gridSize = 15;
-let numMines = 20;
+let numMines = 40;
 let grid;
 let timerInterval;
 let timerValue = 0;

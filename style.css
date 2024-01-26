@@ -39,6 +39,7 @@ body{
     align-items: center;
     cursor: pointer;
     font-weight: bold;
+    font-size: 20px;
     background-color: var(--secondary-color);
 }
 
@@ -59,17 +60,14 @@ body{
 
 .number1{
     color: #00f;
-    font-size: 20px;
 }
 
 .number2{
     color: #0f0;
-    font-size: 20px;
 }
 
 .number3{
     color: #f00;
-    font-size: 20px;
 }
 
 #timer{
