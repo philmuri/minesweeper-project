@@ -10,3 +10,7 @@ Got bored so I decided to follow along on a video for a simple minesweeper game.
     - Check state of all cells if isRevealed or isMine is true?
 
 - Replace confirm() for game over and completion messages with a html element and colorized text
+
+
+## Known bugs
+- None at the moment
