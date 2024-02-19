@@ -13,4 +13,5 @@ Credits go primarily to this youtube video: https://www.youtube.com/watch?v=G9JP
 
 
 ## Known bugs
-- None at the moment
+- Game does not terminate upon succesful board completion
+    - Fix: Check each cell is revealed (there might be a faster method)
