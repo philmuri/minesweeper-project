@@ -1,6 +1,12 @@
 # MINESWEEPER
 Credits go primarily to Mehrdad Sadegh's [video](https://www.youtube.com/watch?v=G9JP8uuQqP0), which I have based my project on. I have contributed with additional features and design customizations.
 
+## Contributiosn
+- Custom interface design
+- Mine flagging
+- Setting number of mines
+- Setting size of grid
+
 ## Other additions to consider
 - Custom size of grid
     - Need to scale cells appropriately by changing the css grid in #minesweeper-board
@@ -14,4 +20,4 @@ Credits go primarily to Mehrdad Sadegh's [video](https://www.youtube.com/watch?v
 
 ## Known bugs
 - Game does not terminate upon succesful board completion
-    - Fix: Check each cell is revealed (there might be a faster method)
+    - Fix: Check each cell is revealed
