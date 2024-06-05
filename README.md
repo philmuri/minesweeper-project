@@ -1,5 +1,5 @@
 # MINESWEEPER
-Credits go primarily to this youtube video: https://www.youtube.com/watch?v=G9JP8uuQqP0. I experimented with some things out of curiosity and added some additional features.
+Credits go primarily to Mehrdad Sadegh's [video](https://www.youtube.com/watch?v=G9JP8uuQqP0), which I have based my project on. I have contributed with additional features and design customizations.
 
 ## Other additions to consider
 - Custom size of grid
